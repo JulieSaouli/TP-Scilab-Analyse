@@ -35,7 +35,7 @@
 
 \maketitle
 
-\section{Sensibilisation ‡ l'arithmÈtique machine}
+\section{Sensibilisation √† l'arithm√©tique machine}
 
 \subsection*{Exercice 1}
 	% commentaire sur les commandes
@@ -43,7 +43,7 @@
 \subsection*{Exercice 2}
 	% figure 1 : courbe de f
 	% constat
-	
+
 \subsection*{Exercice 3}
 	On commence par calculer les premiers termes de la suite $I_{n} = \int_0^1 x^{n} e^{x} dx$.
 	\begin{align*}
@@ -51,41 +51,41 @@
 		& I_{1} = \int_0^1 x e^{x} dx = [x e^{x}]_0^1 - I_{0} = e - I_{0} = 1 \\
 		& I_{2} = \int_0^1 x^{2} e^{x} dx = [x^{2} e^{x}]_0^1 - 2I_{1} = e - 2I_{1} e - 2
 	\end{align*}
-	
-	On en dÈduit la relation suivante : $I_{n} = e - nI_{n-1}$, que l'on vÈrifie par rÈcurrence :
+
+	On en d√©duit la relation suivante : $I_{n} = e - nI_{n-1}$, que l'on v√©rifie par r√©currence :
 	\begin{equation*}
 		I_{n+1} = \int_0^1 x^{n+1} e^{x} dx = [x^{n+1} e^{x}]_0^1 - (n+1) I_{n} = e - (n+1)I_{n}
 	\end{equation*}
-	
-	Avec Scilab on Èvalue $I_{20}$.
-	%partie scilab : calculer I20 ‡ partir de I0 + constat
-	
-	On cherche maintenant ‡ Èvaluer $I_{20}$ par un dÈveloppement en sÈrie entiËre de $e^{x}$.
+
+	Avec Scilab on √©value $I_{20}$.
+	%partie scilab : calculer I20 √† partir de I0 + constat
+
+	On cherche maintenant √† √©valuer $I_{20}$ par un d√©veloppement en s√©rie enti√®re de $e^{x}$.
 	\begin{equation*}
 		I_{20} = \int_0^1 x^{20} e^{x} dx
 		= \int_0^1 x^{n} \sum_{n=0}^{+\infty} \frac{x^{n}}{n!} dx
 		= \sum_{n=0}^{+\infty} \frac{1}{n!} \int_0^1 x^{n} x^{n+20} dx
 		= \sum_{n=0}^{+\infty} \frac{x^{n+21}}{(n+21)n!}
 	\end{equation*}
-	Avec Scilab on Èvalue ‡ nouveau $I_{20}$ mais avec cette nouvelle formule.
-	%idem que autre mÈthode	
-	
+	Avec Scilab on √©value √† nouveau $I_{20}$ mais avec cette nouvelle formule.
+	%idem que autre m√©thode
+
 \subsection*{Exercice 4}
 	%methode des rectangle
-	
-\section{…tude du phÈnomËne de Gibbs}
+
+\section{√âtude du ph√©nom√®ne de Gibbs}
 
 \subsection*{Exercice 5}
-	On considËre la fonction $f$ 1-pÈriodique, dÈfinie sur $[-\frac{1}{2}, \frac{1}{2}[$ par
+	On consid√®re la fonction $f$ 1-p√©riodique, d√©finie sur $[-\frac{1}{2}, \frac{1}{2}[$ par
 	\begin{equation*}
-	f(x) = \left\{\begin{array}{lll} 
-	-1 & \text{pour} & -\frac{1}{2} \le x \le 0 \,,\\ 
+	f(x) = \left\{\begin{array}{lll}
+	-1 & \text{pour} & -\frac{1}{2} \le x \le 0 \,,\\
 	1 & \text{pour} & 0< x < \frac{1}{2} \,.
 	\end{array}\right.
 	\end{equation*}
-	
+
 	%figure : graphe de f sur -3/2 3/2 par exemple
-	On cherche ‡ calculer la sÈrie de Fourier de $f$. On remarque que $f$ est impaire donc $\forall n \in \mathbb{N} $ $a_{n}(f) = 0$.
+	On cherche √† calculer la s√©rie de Fourier de $f$. On remarque que $f$ est impaire donc $\forall n \in \mathbb{N} $ $a_{n}(f) = 0$.
 	On commence par calculer $b_{n}(f)$ $\forall n \in \mathbb{N}^{*}$ :
 	\begin{align*}
 		b_{n}(f)
@@ -94,32 +94,32 @@
 		& = 2 \left ( \left [ \frac{\cos ( 2 \pi n t)}{2 \pi n} \right ]_{-\frac{1}{2}}^{0} - \left [ \frac{\cos ( 2 \pi n t)}{2 \pi n} \right ]_{0}^{\frac{1}{2}} \right ) \\
 		& = \frac{1}{\pi n} \left ( 1 + \cos (- \pi n) - \cos ( \pi n) + 1 \right ) \\
 		& = \frac{1 - \cos (\pi n)}{\pi n} \\
-		& = 2 \frac{1-(-1)^{n}}{\pi n}		
+		& = 2 \frac{1-(-1)^{n}}{\pi n}
 	\end{align*}
 
-	D'o˘ la sÈrie de Fourier de $f$ :
+	D'o√π la s√©rie de Fourier de $f$ :
 	\begin{equation*}
 		f(x) = \sum_{n=1}^{+ \infty} b_{n}(f) \sin (2 \pi n x) = \frac{2}{\pi} \sum_{n=1}^{+ \infty} \frac{1-(-1)^{n}}{n} \sin (2 \pi n x)
 	\end{equation*}
-	
+
 	On effectue un changement de variable en posant $n=k+1$ :
 	\begin{equation*}
 		f(x) =  \frac{2}{\pi} \sum_{k=0}^{+ \infty} \frac{1-(-1)^{2k+1}}{n} \sin (2 (2k+1) \pi x)
 		= \frac{4}{\pi} \sum_{k=0}^{+ \infty} \frac{\sin (2 (2k+1) \pi x)}{2k+1}
 	\end{equation*}
-	
+
 \subsection*{Exercice 6}
 	%fourier pratique
 
-\section{ThÈorËme de Gerschgˆrin}
+\section{Th√©or√®me de Gerschg√∂rin}
 
 \subsection*{Exercice 7}
 
-	DÈmonstration du thÈorËme de Gerschgˆrin :
-	
-	Soit $A$ une matrice carrÈe d'ordre $N$. Soit $\lambda$ une valeur propre de $A$ et $v$ le vecteur propre associÈ ‡ $\lambda$. On note $A = (a_{i,j})_{i,j=1,...,N}$ et $v$ = $(v_{j})_{j=1,...,N}$.
-	
-	On suppose qu'il existe $i \in \{1, ..., N\}$ tel que $|v_{i}| = \max \{ |v_{j}| : j \in \{1, ..., N\}\}$. Comme $v$ est un vecteur propre de $A$, $v \neq 0$ donc $|v_{i}| > 0$, et $v$ vÈrifie l'ÈgalitÈ $Av = \lambda v$, d'o˘ :
+	D√©monstration du th√©or√®me de Gerschg√∂rin :
+
+	Soit $A$ une matrice carr√©e d'ordre $N$. Soit $\lambda$ une valeur propre de $A$ et $v$ le vecteur propre associ√© √† $\lambda$. On note $A = (a_{i,j})_{i,j=1,...,N}$ et $v$ = $(v_{j})_{j=1,...,N}$.
+
+	On suppose qu'il existe $i \in \{1, ..., N\}$ tel que $|v_{i}| = \max \{ |v_{j}| : j \in \{1, ..., N\}\}$. Comme $v$ est un vecteur propre de $A$, $v \neq 0$ donc $|v_{i}| > 0$, et $v$ v√©rifie l'√©galit√© $Av = \lambda v$, d'o√π :
 	\begin{equation*}
 		\sum_{j = 1}^{N} a_{i, j} v_{j} = \lambda v_{i}
 		\Longleftrightarrow \sum_{j = 1, j \neq i}^{N} a_{i, j} v_{j} + a_{i, i} v_{i}= \lambda v_{i} \\
@@ -130,14 +130,14 @@
 		|\lambda - a_{i, i}| = \left|\frac{\sum\limits_{j = 1, j \neq i}^{N} a_{i, j} v_{j}}{v_{i}} \right|
 		\leqslant \sum_{j = 1, j \neq i}^{N} \left|\frac{a_{i, j} v_{j}}{v_{i}} \right|
 	\end{equation*}
-	Or par hypothËse $\forall j \in \{1, ..., N\} : j \neq i$, $\left|\dfrac{v_{i}}{v_{j}}\right| \leqslant 1$.
+	Or par hypoth√®se $\forall j \in \{1, ..., N\} : j \neq i$, $\left|\dfrac{v_{i}}{v_{j}}\right| \leqslant 1$.
 	Alors $|\lambda - a_{i, i}| \leqslant \sum\limits_{j = 1, j \neq i}^{N} |a_{i, j}|$. \newline
 	Donc $\lambda \in \bigcup\limits_{k=1}^{N} D_{k}$.
-	
-	DÈmonstration que toute matrice ‡ diagonale strictement dominante est inversible:
-	
-	Soit $A$ une matrice carrÈe d'ordre $N$ ‡ diagonale strictement dominante. On note $A = (a_{i,j})_{i,j=1,...,N}$.
-	$A$ est ‡ diagonale strictement dominante alors $\forall i, j \in \{1, ..., N\}$ :
+
+	D√©monstration que toute matrice √† diagonale strictement dominante est inversible:
+
+	Soit $A$ une matrice carr√©e d'ordre $N$ √† diagonale strictement dominante. On note $A = (a_{i,j})_{i,j=1,...,N}$.
+	$A$ est √† diagonale strictement dominante alors $\forall i, j \in \{1, ..., N\}$ :
 	\begin{equation*}
 		\sum\limits_{i \neq j} |a_{i, j}| < |a_{i, i}|.
 	\end{equation*}
@@ -145,8 +145,8 @@
 	\begin{equation*}
 		|a_{k, k}| \leqslant \sum\limits_{k \neq j} |a_{k, j}|
 	\end{equation*}
-	Cela est impossible car $A$ est ‡ diagonale strictement dominante.
-	Si $0 \notin \bigcup\limits_{k=1}^{N} D_{k}$, alors $0$ n'est pas une valeur propre de $A$ par le thÈorËme de Gerschgˆrin.
+	Cela est impossible car $A$ est √† diagonale strictement dominante.
+	Si $0 \notin \bigcup\limits_{k=1}^{N} D_{k}$, alors $0$ n'est pas une valeur propre de $A$ par le th√©or√®me de Gerschg√∂rin.
 	Donc $det(A) \neq 0$ $\Longrightarrow$ $A$ est inversible.
 
-\end{document}]
+\end{document}]\grid
