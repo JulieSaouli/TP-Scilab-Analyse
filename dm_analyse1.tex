@@ -92,7 +92,7 @@
 		& = 2 \int_{-\frac{1}{2}}^{\frac{1}{2}} f(t) \sin (2 \pi n t) dt \\
 		& = 2 \left ( - \int_{-\frac{1}{2}}^{0} \sin (2 \pi n t) dt + \int_{0}^{\frac{1}{2}} \sin (2 \pi n t) dt \right ) \\
 		& = 2 \left ( \left [ \frac{\cos ( 2 \pi n t)}{2 \pi n} \right ]_{-\frac{1}{2}}^{0} - \left [ \frac{\cos ( 2 \pi n t)}{2 \pi n} \right ]_{0}^{\frac{1}{2}} \right ) \\
-		& = \frac{1}{\pi n} \left ( 1 + \cos (- \pi n) - \cos ( \pi n) + 1 \right ) \\
+		& = \frac{1}{\pi n} \left ( 1 - \cos (- \pi n) - \cos ( \pi n) + 1 \right ) \\
 		& = \frac{1 - \cos (\pi n)}{\pi n} \\
 		& = 2 \frac{1-(-1)^{n}}{\pi n}
 	\end{align*}
@@ -146,7 +146,7 @@
 		|a_{k, k}| \leqslant \sum\limits_{k \neq j} |a_{k, j}|
 	\end{equation*}
 	Cela est impossible car $A$ est à diagonale strictement dominante.
-	Si $0 \notin \bigcup\limits_{k=1}^{N} D_{k}$, alors $0$ n'est pas une valeur propre de $A$ par le théorème de Gerschgörin.
+	Comme $0 \notin \bigcup\limits_{k=1}^{N} D_{k}$, alors $0$ n'est pas une valeur propre de $A$ par le théorème de Gerschgörin.
 	Donc $det(A) \neq 0$ $\Longrightarrow$ $A$ est inversible.
 
 \end{document}]\grid
