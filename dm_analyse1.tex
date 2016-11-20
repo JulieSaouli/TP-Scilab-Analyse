@@ -2,7 +2,7 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\usepackage[francais]{babel}
+\usepackage[french]{babel}
 \usepackage{amsmath,amssymb}
 \usepackage{fullpage}
 \usepackage{xspace}
@@ -35,6 +35,14 @@
 
 \maketitle
 
+%TODO
+% renommer les scripts / fragmenter script prise en main/sous parties
+% exercice 1 / exercice 2 script + comm / exercice 3 q2 !! + comm
+% exercice 4 comm
+% exercice 6 graphes + comm
+% exercice 7 graphe q3
+% relecture globale
+
 \section{Sensibilisation à l'arithmétique machine}
 
 \subsection*{Exercice 1}
@@ -45,7 +53,7 @@
 	% constat
 
 \subsection*{Exercice 3}
-	On commence par calculer les premiers termes de la suite $I_{n} = \int_0^1 x^{n} e^{x} dx$.
+	1. On commence par calculer les premiers termes de la suite $I_{n} = \int_0^1 x^{n} e^{x} dx$.
 	\begin{align*}
 		& I_{0} = \int_0^1 e^{x} dx = [e^{x}]_0^1 = e - 1 \\
 		& I_{1} = \int_0^1 x e^{x} dx = [x e^{x}]_0^1 - I_{0} = e - I_{0} = 1 \\
@@ -60,31 +68,25 @@
 	Avec Scilab on évalue $I_{20}$.
 	%partie scilab : calculer I20 à partir de I0 + constat
 
-	On cherche maintenant à évaluer $I_{20}$ par un développement en série entière de $e^{x}$.
+	2. On cherche maintenant à évaluer $I_{20}$ par un développement en série entière de $e^{x}$.
 	\begin{equation*}
 		I_{20} = \int_0^1 x^{20} e^{x} dx
 		= \int_0^1 x^{n} \sum_{n=0}^{+\infty} \frac{x^{n}}{n!} dx
-		= \sum_{n=0}^{+\infty} \frac{1}{n!} \int_0^1 x^{n} x^{n+20} dx
-		= \sum_{n=0}^{+\infty} \frac{x^{n+21}}{(n+21)n!}
+		= \sum_{n=0}^{+\infty} \frac{1}{n!} \int_0^1 x^{n+20} dx
+		= \sum_{n=0}^{+\infty} \frac{1}{(n+21)n!}
 	\end{equation*}
 	Avec Scilab on évalue à nouveau $I_{20}$ mais avec cette nouvelle formule.
 	%idem que autre méthode
+	
+	3. %conclusion
 
 \subsection*{Exercice 4}
-	%methode des rectangle
+	Le script associé à cet exercice est nommé \textit{exercice4.sce}. Pour $n$ suffisamment grand, on retrouve bien le même résultat qu'à l'exercice 3.2.
+	% quand on aura trouvé I20 avec le DL en série, donner un exemple de n
 
 \section{Étude du phénomène de Gibbs}
 
 \subsection*{Exercice 5}
-	On considère la fonction $f$ 1-périodique, définie sur $[-\frac{1}{2}, \frac{1}{2}[$ par
-	\begin{equation*}
-	f(x) = \left\{\begin{array}{lll}
-	-1 & \text{pour} & -\frac{1}{2} \le x \le 0 \,,\\
-	1 & \text{pour} & 0< x < \frac{1}{2} \,.
-	\end{array}\right.
-	\end{equation*}
-
-	%figure : graphe de f sur -3/2 3/2 par exemple
 	On cherche à calculer la série de Fourier de $f$. On remarque que $f$ est impaire donc $\forall n \in \mathbb{N} $ $a_{n}(f) = 0$.
 	On commence par calculer $b_{n}(f)$ $\forall n \in \mathbb{N}^{*}$ :
 	\begin{align*}
@@ -107,15 +109,19 @@
 		f(x) =  \frac{2}{\pi} \sum_{k=0}^{+ \infty} \frac{1-(-1)^{2k+1}}{n} \sin (2 (2k+1) \pi x)
 		= \frac{4}{\pi} \sum_{k=0}^{+ \infty} \frac{\sin (2 (2k+1) \pi x)}{2k+1}
 	\end{equation*}
+	
+	La fonction $f$ est discontinue en $\{\frac{1}{2} k | k \in \mathbb{Z}\}$. De ce fait, la série de Fourier ci-dessus n'est valable que sur $\mathbb{R} \setminus \{\frac{1}{2} k | k \in \mathbb{Z}\}$.
 
 \subsection*{Exercice 6}
-	%fourier pratique
+	Le script associé à cet exercice est le script \textit{exercice6.sce}. Voici les graphes obtenus pour différentes valeurs de $Ntermes$ :
+	
+	%commentaire sur les graphes / le phénomène
 
 \section{Théorème de Gerschgörin}
 
 \subsection*{Exercice 7}
 
-	Démonstration du théorème de Gerschgörin :
+	1. Démonstration du théorème de Gerschgörin :
 
 	Soit $A$ une matrice carrée d'ordre $N$. Soit $\lambda$ une valeur propre de $A$ et $v$ le vecteur propre associé à $\lambda$. On note $A = (a_{i,j})_{i,j=1,...,N}$ et $v$ = $(v_{j})_{j=1,...,N}$.
 
@@ -133,8 +139,16 @@
 	Or par hypothèse $\forall j \in \{1, ..., N\} : j \neq i$, $\left|\dfrac{v_{i}}{v_{j}}\right| \leqslant 1$.
 	Alors $|\lambda - a_{i, i}| \leqslant \sum\limits_{j = 1, j \neq i}^{N} |a_{i, j}|$. \newline
 	Donc $\lambda \in \bigcup\limits_{k=1}^{N} D_{k}$.
+	
+	
+	2. Le script associé à cet exercice est le script $exercice7.sce$. Le script est testé sur la matrice fournie à la question 3.
+	
+	
+	3. Le graphe des disques de Gerschgörin associé est le suivant :
+	%insert graphe / ne pas oublier la légende disque + valeurs propre
+	
 
-	Démonstration que toute matrice à diagonale strictement dominante est inversible:
+	4. Démonstration que toute matrice à diagonale strictement dominante est inversible:
 
 	Soit $A$ une matrice carrée d'ordre $N$ à diagonale strictement dominante. On note $A = (a_{i,j})_{i,j=1,...,N}$.
 	$A$ est à diagonale strictement dominante alors $\forall i, j \in \{1, ..., N\}$ :
