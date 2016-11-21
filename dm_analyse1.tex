@@ -36,8 +36,8 @@
 \maketitle
 
 %TODO
-% renommer les scripts / fragmenter script prise en main/sous parties
-% exercice 1 / exercice 2 script + comm / exercice 3 q2 !! + comm
+% renommer les scripts
+% exercice 2 script + comm / exercice 3 q2 !! + comm
 % exercice 4 comm
 % exercice 6 graphes + comm
 % exercice 7 graphe q3
@@ -46,11 +46,25 @@
 \section{Sensibilisation à l'arithmétique machine}
 
 \subsection*{Exercice 1}
-	% commentaire sur les commandes
-
+	En exécutant les commandes données dans Scilab, on obtient :
+	\begin{verbatim}
+	--> z = 0.
+	--> w = 1.
+	\end{verbatim}
+	
+	Dans le calcul de z, comme $x >> y$, y est négligé devant x dans l'addition de ces deux valeurs. De ce fait, $(y+x)-x \simeq x - x = 0$.
+	Dans le calcul de w, les parenthèses évitent ce problème car toutes les opérations sont effectuées entre des termes de même ordre ou avec 0.
+	
+	
 \subsection*{Exercice 2}
-	% figure 1 : courbe de f
-	% constat
+\begin{figure}[!h]
+	\begin{center}
+		\includegraphics[scale=0.5]{graphes/exercice2.jpg}
+		\caption{Graphe de la fonction $f$ en fonction de $x \in [0,4]$.}
+	\end{center}	
+\end{figure}
+
+	D'après le graphe, on constate que $\forall x \in [0, 1]$ $f(x) = 0$.
 
 \subsection*{Exercice 3}
 	1. On commence par calculer les premiers termes de la suite $I_{n} = \int_0^1 x^{n} e^{x} dx$.

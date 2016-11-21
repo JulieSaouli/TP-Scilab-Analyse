@@ -14,10 +14,8 @@ function I=rectangle(n)
 endfunction
 
 
-n = 1000;
+n = 1000000;
 
 x = linspace(0, 1, n);
-
 I = rectangle(n)
-
 
