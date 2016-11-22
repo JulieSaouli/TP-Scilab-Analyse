@@ -37,7 +37,6 @@
 
 %TODO
 % renommer les scripts
-% exercice 2 script + comm / exercice 3 q2 !! + comm
 % exercice 4 comm
 % exercice 6 graphes + comm
 % exercice 7 graphe q3
@@ -52,19 +51,23 @@
 	--> w = 1.
 	\end{verbatim}
 	
-	Dans le calcul de z, comme $x >> y$, y est négligé devant x dans l'addition de ces deux valeurs. De ce fait, $(y+x)-x \simeq x - x = 0$.
+	Dans le calcul de z, comme $x >> y$, y est négligable devant x dans l'addition de ces deux valeurs. De ce fait, $(y+x)-x \simeq x - x = 0$.
 	Dans le calcul de w, les parenthèses évitent ce problème car toutes les opérations sont effectuées entre des termes de même ordre ou avec 0.
-	
+
 	
 \subsection*{Exercice 2}
 \begin{figure}[!h]
 	\begin{center}
 		\includegraphics[scale=0.5]{graphes/exercice2.jpg}
-		\caption{Graphe de la fonction $f$ en fonction de $x \in [0,4]$.}
 	\end{center}	
 \end{figure}
 
-	D'après le graphe, on constate que $\forall x \in [0, 1]$ $f(x) = 0$.
+	D'après le graphe, on constate que on n'obtient pas du tout le résultat théorique attendu, c'est-à-dire $f(x) = x$.
+	
+	En fait, $y$ est arrondi à $1$ pour tout $x \in [1, 4]$. En calculant $f(x)$, on obtient alors $1$. Sur l'intervalle $[0, 1[$, $y$ tend également vers $1$ mais est arrondi en dessous de $1$ (à $0,9999...99$). En calculant $f(x)$, on obtient donc $0$.
+	
+	Le calcul de $y$ demande trop de précision à la machine pour pouvoir différencier les valeurs de $1$, ce qui entraîne le résultat observé.
+
 
 \subsection*{Exercice 3}
 	1. On commence par calculer les premiers termes de la suite $I_{n} = \int_0^1 x^{n} e^{x} dx$.
@@ -79,8 +82,7 @@
 		I_{n+1} = \int_0^1 x^{n+1} e^{x} dx = [x^{n+1} e^{x}]_0^1 - (n+1) I_{n} = e - (n+1)I_{n}
 	\end{equation*}
 
-	Avec Scilab on évalue $I_{20}$.
-	%partie scilab : calculer I20 à partir de I0 + constat
+	Avec Scilab on évalue $I_{20}$ et on obtient que  $I_{20} \simeq -129,26371$. Ce résultat est évidemment faux car par définition  $I_{20} >\geqslant 0$. En calculant $I_{20}$ de cette manière, on accumule les erreurs de calcul des termes précédents. Ces erreurs sont faibles mais deviennent significatives lorsque $n$ est suffisament grand (à partir de $I_{18}$ d'après nos observations). Cela est dû au fait qu'en effectuant la multiplication $nI_{n-1}$, on multiplie également l'erreur sur $I_{n-1}$ par $n$.
 
 	2. On cherche maintenant à évaluer $I_{20}$ par un développement en série entière de $e^{x}$.
 	\begin{equation*}
@@ -89,14 +91,15 @@
 		= \sum_{n=0}^{+\infty} \frac{1}{n!} \int_0^1 x^{n+20} dx
 		= \sum_{n=0}^{+\infty} \frac{1}{(n+21)n!}
 	\end{equation*}
-	Avec Scilab on évalue à nouveau $I_{20}$ mais avec cette nouvelle formule.
-	%idem que autre méthode
+	Avec Scilab on évalue à nouveau $I_{20}$ mais avec cette nouvelle formule : on obtient $I_{20} \simeq 0,12380$.
 	
-	3. %conclusion
+	3. En calculant $I_{20}$ par la première méthode, on accumule les erreurs de calcul des termes précédents. Ces erreurs sont faibles mais deviennent significatives lorsque $n$ est suffisament grand (à partir de $I_{18}$ d'après nos observations). Cela est dû au fait qu'en effectuant la multiplication $nI_{n-1}$, on multiplie également l'erreur sur $I_{n-1}$ par $n$.
+	
+	Avec la seconde méthode, on calcule une somme. On a de faibles erreurs sur chacun des termes de la somme. Ces erreurs sont suffisamment faibles et peuvent se compenser donc elle ne fausse pas le résultat. Celui-ci n'est pas dénué d'erreur, car il a été obtenu expérimentalement, mais cette erreur est bien plus faible que l'ordre de grandeur du résultat.
 
 \subsection*{Exercice 4}
-	Le script associé à cet exercice est nommé \textit{exercice4.sce}. Pour $n$ suffisamment grand, on retrouve bien le même résultat qu'à l'exercice 3.2.
-	% quand on aura trouvé I20 avec le DL en série, donner un exemple de n
+	Le script associé à cet exercice est nommé \textit{exercice4.sce}. Pour $n$ suffisamment grand, on retrouve bien le même résultat qu'à l'exercice 3.2 à $10^{-6}$ près.
+
 
 \section{Étude du phénomène de Gibbs}
 
