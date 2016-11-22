@@ -11,6 +11,7 @@
 \usepackage{listings}
 \usepackage[usenames,dvipsnames]{xcolor}
 \usepackage{url}
+\usepackage{float}
 
 \newtheorem{question}{Question}
 \newtheorem{exo}{Exercice}
@@ -35,13 +36,6 @@
 
 \maketitle
 
-%TODO
-% renommer les scripts
-% exercice 4 comm
-% exercice 6 graphes + comm
-% exercice 7 graphe q3
-% relecture globale
-
 \section{Sensibilisation à l'arithmétique machine}
 
 \subsection*{Exercice 1}
@@ -56,10 +50,11 @@
 
 	
 \subsection*{Exercice 2}
-\begin{figure}[!h]
-	\begin{center}
-		\includegraphics[scale=0.5]{graphes/exercice2.jpg}
-	\end{center}	
+	Le script associé à cet exercice est le script $exercice2.sce$.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{graphes/exercice2.jpg}	
 \end{figure}
 
 	D'après le graphe, on constate que on n'obtient pas du tout le résultat théorique attendu, c'est-à-dire $f(x) = x$.
@@ -104,7 +99,7 @@
 \section{Étude du phénomène de Gibbs}
 
 \subsection*{Exercice 5}
-	On cherche à calculer la série de Fourier de $f$. On remarque que $f$ est impaire donc $\forall n \in \mathbb{N} $ $a_{n}(f) = 0$.
+	On cherche à calculer la série de Fourier de $f$. On remarque que $f$ est $C^{1}$ par morceaux et impaire donc $\forall n \in \mathbb{N} $ $a_{n}(f) = 0$.
 	On commence par calculer $b_{n}(f)$ $\forall n \in \mathbb{N}^{*}$ :
 	\begin{align*}
 		b_{n}(f)
@@ -132,15 +127,23 @@
 \subsection*{Exercice 6}
 	Le script associé à cet exercice est le script \textit{exercice6.sce}. Voici les graphes obtenus pour différentes valeurs de $Ntermes$ :
 	
-	%commentaire sur les graphes / le phénomène
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=400pt]{graphes/exercice6-1.jpg}	
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=400pt]{graphes/exercice6-2.jpg}	
+\end{figure}
+
+	On observe une forte augmentation de l'amplitude des oscillations de la série de Fourier associé à $f$ au niveau des discontinuités. En augmentant {\tt Ntermes}, l'amplitude des oscillations à l'endroit des discontinuités reste identique mais la zone d'oscillation est réduite. La série de Fourier converge donc simplement vers $f$ mais pas uniformément.
+
 
 \section{Théorème de Gerschgörin}
 
 \subsection*{Exercice 7}
 
-	1. Démonstration du théorème de Gerschgörin :
-
-	Soit $A$ une matrice carrée d'ordre $N$. Soit $\lambda$ une valeur propre de $A$ et $v$ le vecteur propre associé à $\lambda$. On note $A = (a_{i,j})_{i,j=1,...,N}$ et $v$ = $(v_{j})_{j=1,...,N}$.
+	1. Soit $A$ une matrice carrée d'ordre $N$. Soit $\lambda$ une valeur propre de $A$ et $v$ le vecteur propre associé à $\lambda$. On note $A = (a_{i,j})_{i,j=1,...,N}$ et $v$ = $(v_{j})_{j=1,...,N}$.
 
 	On suppose qu'il existe $i \in \{1, ..., N\}$ tel que $|v_{i}| = \max \{ |v_{j}| : j \in \{1, ..., N\}\}$. Comme $v$ est un vecteur propre de $A$, $v \neq 0$ donc $|v_{i}| > 0$, et $v$ vérifie l'égalité $Av = \lambda v$, d'où :
 	\begin{equation*}
@@ -157,17 +160,18 @@
 	Alors $|\lambda - a_{i, i}| \leqslant \sum\limits_{j = 1, j \neq i}^{N} |a_{i, j}|$. \newline
 	Donc $\lambda \in \bigcup\limits_{k=1}^{N} D_{k}$.
 	
-	
 	2. Le script associé à cet exercice est le script $exercice7.sce$. Le script est testé sur la matrice fournie à la question 3.
 	
+	3. Le graphe des disques de Gerschgörin associé à la matrice donnée est le suivant :
 	
-	3. Le graphe des disques de Gerschgörin associé est le suivant :
-	%insert graphe / ne pas oublier la légende disque + valeurs propre
-	
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=420pt]{graphes/exercice7.jpg}	
+\end{figure}
 
-	4. Démonstration que toute matrice à diagonale strictement dominante est inversible:
+Les cercles rouges correspondent aux contours des disques de Gerschgörin. Les valeurs propres correspondent aux points bleus. Cet exemple vérifie bien le théorème de Gerschgörin.
 
-	Soit $A$ une matrice carrée d'ordre $N$ à diagonale strictement dominante. On note $A = (a_{i,j})_{i,j=1,...,N}$.
+	4. Soit $A$ une matrice carrée d'ordre $N$ à diagonale strictement dominante. On note $A = (a_{i,j})_{i,j=1,...,N}$.
 	$A$ est à diagonale strictement dominante alors $\forall i, j \in \{1, ..., N\}$ :
 	\begin{equation*}
 		\sum\limits_{i \neq j} |a_{i, j}| < |a_{i, i}|.
