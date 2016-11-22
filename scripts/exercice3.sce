@@ -1,7 +1,6 @@
 clc; clf; clear;
 
 //question 1
-
 I = exp(1)-1;
 
 for n = 1:20;
