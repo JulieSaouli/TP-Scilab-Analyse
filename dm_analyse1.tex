@@ -45,31 +45,31 @@
 	--> w = 1.
 	\end{verbatim}
 	
-	Dans le calcul de z, comme $x >> y$, y est négligable devant x dans l'addition de ces deux valeurs. De ce fait, $(y+x)-x \simeq x - x = 0$.
+	Dans le calcul de z, comme $x >> y$, y est négligable devant x dans l'addition de ces deux valeurs. De ce fait, Scilab donne donc $(y+x)-x \simeq x - x = 0$.
 	Dans le calcul de w, les parenthèses évitent ce problème car toutes les opérations sont effectuées entre des termes de même ordre ou avec 0.
 
 	
 \subsection*{Exercice 2}
-	Le script associé à cet exercice est le script $exercice2.sce$.
-
+	Le script associé à cet exercice est le script \textit{exercice2.sce}.
 \begin{figure}[H]
 	\centering
 	\includegraphics[scale=0.5]{graphes/exercice2.jpg}	
 \end{figure}
 
-	D'après le graphe, on constate que on n'obtient pas du tout le résultat théorique attendu, c'est-à-dire $f(x) = x$.
+	D'après le graphe, on constate que l'on n'obtient pas du tout le résultat théorique attendu, c'est-à-dire $f(x) = x$.
 	
-	En fait, $y$ est arrondi à $1$ pour tout $x \in [1, 4]$. En calculant $f(x)$, on obtient alors $1$. Sur l'intervalle $[0, 1[$, $y$ tend également vers $1$ mais est arrondi en dessous de $1$ (à $0,9999...99$). En calculant $f(x)$, on obtient donc $0$.
+	En fait, $y$ tend vers $1$ par valeur positive pour tout $x \in [1, 4]$ : $y$ est donc arrondi à $1$ sur cet intervalle. En calculant $f(x)$, on obtient alors $1$. Sur l'intervalle $[0, 1[$, $y$ tend également vers $1$ mais par valeur négative : $y$ est arrondi vers $1^{-}$. En calculant $f(x)$, on obtient donc $0$.
 	
 	Le calcul de $y$ demande trop de précision à la machine pour pouvoir différencier les valeurs de $1$, ce qui entraîne le résultat observé.
 
 
 \subsection*{Exercice 3}
+	Le script associé à cet exercice est le script \textit{exercice3.sce}.
 	1. On commence par calculer les premiers termes de la suite $I_{n} = \int_0^1 x^{n} e^{x} dx$.
 	\begin{align*}
 		& I_{0} = \int_0^1 e^{x} dx = [e^{x}]_0^1 = e - 1 \\
 		& I_{1} = \int_0^1 x e^{x} dx = [x e^{x}]_0^1 - I_{0} = e - I_{0} = 1 \\
-		& I_{2} = \int_0^1 x^{2} e^{x} dx = [x^{2} e^{x}]_0^1 - 2I_{1} = e - 2I_{1} e - 2
+		& I_{2} = \int_0^1 x^{2} e^{x} dx = [x^{2} e^{x}]_0^1 - 2I_{1} = e - 2I_{1} = e - 2
 	\end{align*}
 
 	On en déduit la relation suivante : $I_{n} = e - nI_{n-1}$, que l'on vérifie par récurrence :
@@ -77,7 +77,7 @@
 		I_{n+1} = \int_0^1 x^{n+1} e^{x} dx = [x^{n+1} e^{x}]_0^1 - (n+1) I_{n} = e - (n+1)I_{n}
 	\end{equation*}
 
-	Avec Scilab on évalue $I_{20}$ et on obtient que  $I_{20} \simeq -129,26371$. Ce résultat est évidemment faux car par définition  $I_{20} >\geqslant 0$. En calculant $I_{20}$ de cette manière, on accumule les erreurs de calcul des termes précédents. Ces erreurs sont faibles mais deviennent significatives lorsque $n$ est suffisament grand (à partir de $I_{18}$ d'après nos observations). Cela est dû au fait qu'en effectuant la multiplication $nI_{n-1}$, on multiplie également l'erreur sur $I_{n-1}$ par $n$.
+	Avec Scilab on évalue $I_{20}$ et on obtient que  $I_{20} \simeq -129,26371$. Ce résultat est évidemment faux car par définition  $I_{20} \geqslant 0$.
 
 	2. On cherche maintenant à évaluer $I_{20}$ par un développement en série entière de $e^{x}$.
 	\begin{equation*}
@@ -90,10 +90,10 @@
 	
 	3. En calculant $I_{20}$ par la première méthode, on accumule les erreurs de calcul des termes précédents. Ces erreurs sont faibles mais deviennent significatives lorsque $n$ est suffisament grand (à partir de $I_{18}$ d'après nos observations). Cela est dû au fait qu'en effectuant la multiplication $nI_{n-1}$, on multiplie également l'erreur sur $I_{n-1}$ par $n$.
 	
-	Avec la seconde méthode, on calcule une somme. On a de faibles erreurs sur chacun des termes de la somme. Ces erreurs sont suffisamment faibles et peuvent se compenser donc elle ne fausse pas le résultat. Celui-ci n'est pas dénué d'erreur, car il a été obtenu expérimentalement, mais cette erreur est bien plus faible que l'ordre de grandeur du résultat.
+	Avec la seconde méthode, on a de faibles erreurs sur chacun des termes de la somme. Ces erreurs sont suffisamment faibles et peuvent se compenser donc elles ne faussent pas le résultat. Celui-ci n'est pas dénué d'erreur car il a été obtenu expérimentalement, mais cette erreur est bien plus faible que l'ordre de grandeur du résultat.
 
 \subsection*{Exercice 4}
-	Le script associé à cet exercice est nommé \textit{exercice4.sce}. Pour $n$ suffisamment grand, on retrouve bien le même résultat qu'à l'exercice 3.2 à $10^{-6}$ près.
+	Le script associé à cet exercice est le script \textit{exercice4.sce}. Pour $n$ suffisamment grand, on retrouve bien le même résultat qu'à l'exercice 3.2 à $10^{-6}$ près.
 
 
 \section{Étude du phénomène de Gibbs}
@@ -107,11 +107,11 @@
 		& = 2 \left ( - \int_{-\frac{1}{2}}^{0} \sin (2 \pi n t) dt + \int_{0}^{\frac{1}{2}} \sin (2 \pi n t) dt \right ) \\
 		& = 2 \left ( \left [ \frac{\cos ( 2 \pi n t)}{2 \pi n} \right ]_{-\frac{1}{2}}^{0} - \left [ \frac{\cos ( 2 \pi n t)}{2 \pi n} \right ]_{0}^{\frac{1}{2}} \right ) \\
 		& = \frac{1}{\pi n} \left ( 1 - \cos (- \pi n) - \cos ( \pi n) + 1 \right ) \\
-		& = \frac{1 - \cos (\pi n)}{\pi n} \\
+		& = 2 \frac{1 - \cos (\pi n)}{\pi n} \\
 		& = 2 \frac{1-(-1)^{n}}{\pi n}
 	\end{align*}
 
-	D'où la série de Fourier de $f$ :
+	On en déduit la série de Fourier de $f$ :
 	\begin{equation*}
 		f(x) = \sum_{n=1}^{+ \infty} b_{n}(f) \sin (2 \pi n x) = \frac{2}{\pi} \sum_{n=1}^{+ \infty} \frac{1-(-1)^{n}}{n} \sin (2 \pi n x)
 	\end{equation*}
@@ -122,10 +122,10 @@
 		= \frac{4}{\pi} \sum_{k=0}^{+ \infty} \frac{\sin (2 (2k+1) \pi x)}{2k+1}
 	\end{equation*}
 	
-	La fonction $f$ est discontinue en $\{\frac{1}{2} k | k \in \mathbb{Z}\}$. De ce fait, la série de Fourier ci-dessus n'est valable que sur $\mathbb{R} \setminus \{\frac{1}{2} k | k \in \mathbb{Z}\}$.
+	La fonction $f$ est discontinue en tous les points de l'ensemble $\{\frac{1}{2} k | k \in \mathbb{Z}\}$. De ce fait, la série de Fourier ci-dessus n'est valable que sur $\mathbb{R} \setminus \{\frac{1}{2} k | k \in \mathbb{Z}\}$.
 
 \subsection*{Exercice 6}
-	Le script associé à cet exercice est le script \textit{exercice6.sce}. Voici les graphes obtenus pour différentes valeurs de $Ntermes$ :
+	Le script associé à cet exercice est le script \textit{exercice6.sce}. Il permet de tracer le premier graphe en choisissant la valeur de {\tt Ntermes}. Ici on a choisi {\tt Ntermes = 50}. Sur le seconde graphe, on fait varier {\tt Ntermes} en choisissant {\tt Ntermes = 50} puis {\tt 100} et {\tt 150}.
 	
 \begin{figure}[H]
 	\centering
@@ -156,11 +156,11 @@
 		|\lambda - a_{i, i}| = \left|\frac{\sum\limits_{j = 1, j \neq i}^{N} a_{i, j} v_{j}}{v_{i}} \right|
 		\leqslant \sum_{j = 1, j \neq i}^{N} \left|\frac{a_{i, j} v_{j}}{v_{i}} \right|
 	\end{equation*}
-	Or par hypothèse $\forall j \in \{1, ..., N\} : j \neq i$, $\left|\dfrac{v_{i}}{v_{j}}\right| \leqslant 1$.
+	Or par hypothèse $\forall j \in \{1, ..., N\}$ tel que $j \neq i$, $\left|\dfrac{v_{i}}{v_{j}}\right| \leqslant 1$.
 	Alors $|\lambda - a_{i, i}| \leqslant \sum\limits_{j = 1, j \neq i}^{N} |a_{i, j}|$. \newline
 	Donc $\lambda \in \bigcup\limits_{k=1}^{N} D_{k}$.
 	
-	2. Le script associé à cet exercice est le script $exercice7.sce$. Le script est testé sur la matrice fournie à la question 3.
+	2. Le script associé à cet exercice est le script \textit{exercice7.sce}. Le script est testé sur la matrice fournie à la question 3.
 	
 	3. Le graphe des disques de Gerschgörin associé à la matrice donnée est le suivant :
 	
@@ -181,6 +181,7 @@ Les cercles rouges correspondent aux contours des disques de Gerschgörin. Les v
 		|a_{k, k}| \leqslant \sum\limits_{k \neq j} |a_{k, j}|
 	\end{equation*}
 	Cela est impossible car $A$ est à diagonale strictement dominante.
+	
 	Comme $0 \notin \bigcup\limits_{k=1}^{N} D_{k}$, alors $0$ n'est pas une valeur propre de $A$ par le théorème de Gerschgörin.
 	Donc $det(A) \neq 0$ $\Longrightarrow$ $A$ est inversible.
 
